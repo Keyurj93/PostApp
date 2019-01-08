@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+//variables
+$color-charcoal-black:#5D5C61;
+$color-paper:#F4F4F4;
+$color-silk:#DCD0C0;
+$color-pale-gold:#C0B283;
+$color-white:#fff;
+$color-lightgrey:#ADADAD;
+html{
+    font-size: 62.5%; //1rem = 10px;
+}
+body{
+    font-family: Roboto;
+    padding: 0 3rem;
+    width: 90%;
+    margin: 0 auto;
+    font-weight: 300;
+}
+// common classes
+// button
+.btn{
+    width: 8rem;
+    height: 4rem;
+    border: none;
+    border-radius: .3rem;
+    box-shadow: 0 1rem 2rem rgba($color-charcoal-black,0.4);
+    margin: 0 auto;
+    margin-top: 2.5rem;
+    transition: all .2s;
+    background-color: $color-charcoal-black;
+    cursor: pointer; 
+    color: $color-paper;
+    &:active{
+        box-shadow: 0 .2rem .2rem rgba($color-charcoal-black,0.4);
+    }
+}

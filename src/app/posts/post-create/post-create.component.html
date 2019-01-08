@@ -1,0 +1,13 @@
+<div class="posts">
+    <form (submit)="addPost(postForm)" class="posts__form" #postForm="ngForm">
+        <input type="text" class="posts__title" placeholder="Enter Title" name="title" ngModel required minLength="3" #title="ngModel">
+        <div *ngIf="title.dirty && title.invalid" align="center">Please enter a Post title</div>
+
+        <textarea class="posts__content" cols="30" rows="6" name="content" ngModel required #content="ngModel" placeholder="Enter Content">
+        </textarea>
+        <div *ngIf="content.dirty && content.invalid" align="center">Please enter valid content</div>
+        <div align="center">
+            <button class="btn" type="submit">Save Post</button>
+        </div>
+    </form>
+</div>
