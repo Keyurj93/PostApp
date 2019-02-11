@@ -1,3 +1,17 @@
 <div class="header">
-    My Posts
-</div>
+    <span><a routerLink="/">My Posts</a></span>
+    <ul class="routes">
+        <li *ngIf="userIsAuthenticated">
+            <a mat-button routerLink="/create" routerLinkActive="routes__activelink">New Post</a>
+        </li>
+        <li *ngIf="!userIsAuthenticated">
+            <a mat-button routerLink="/login" routerLinkActive="routes__activelink">Login</a>
+        </li>
+        <li *ngIf="!userIsAuthenticated">
+            <a mat-button routerLink="/signup" routerLinkActive="routes__activelink">Signup</a>
+        </li>
+        <li *ngIf="userIsAuthenticated">
+            <button class="header__btn" (click)="onLogout()">Logout</button>
+        </li>
+    </ul>
+</div> 

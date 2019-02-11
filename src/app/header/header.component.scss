@@ -1,7 +1,39 @@
+@import '../../styles';
+
 .header{
     background-color:#373737;
     color:#F4F4F4;
     padding:2rem;
     font-size: 2rem;
     border-radius: .3rem;
+    &__btn{
+        width: 8rem;
+        height: 4rem;
+        border: none;
+        border-radius: .3rem;
+        box-shadow: 0 1rem 2rem rgba($color-charcoal-black,0.4);
+        margin: 0 auto;
+        transition: all .2s;
+        background-color: $color-paper;
+        cursor: pointer; 
+        color: $color-charcoal-black;
+        &:active{
+            box-shadow: 0 .2rem .2rem rgba($color-charcoal-black,0.4);
+        }
+    }
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+ul{
+    display: flex;
+    float: right;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    &::after{
+        content: '';
+        clear: both;
+    }
 }

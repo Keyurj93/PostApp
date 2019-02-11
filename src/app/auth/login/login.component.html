@@ -1,0 +1,9 @@
+<mat-card>
+    <form (submit)="onLogin(loginForm)" #loginForm="ngForm" class="login">
+        <input name="email" ngModel type="email" #emailInput="ngModel" required email class="login__credential" placeholder="Enter Email" >
+        <input name="password" ngModel type="password" #passwordInput="ngModel" required class="login__credential" placeholder="Enter Password" >
+        <div align="center">
+            <button class="btn">Login</button> 
+        </div> 
+    </form>
+</mat-card>

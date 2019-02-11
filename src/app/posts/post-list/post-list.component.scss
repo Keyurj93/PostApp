@@ -5,7 +5,9 @@
     display: block;
     margin: 0 auto;
 }
-.accordion {
+.accordian {
+    margin-top: 1.5rem;
+    border-radius: .5rem;
     &__title{
         background-color: $color-charcoal-black;
         color:$color-paper;
@@ -19,15 +21,31 @@
         transition: 0.4s;
         display: block;
         margin: 0 auto;
-        &:hover{
-            background-color: $color-paper; 
-        }
+        border-radius: 5px;
+        // &:hover{
+        //     background-color: $color-paper; 
+        // }
     }
     &__button-edit{
-        display: inline;
+        display: inline-block;
+        margin-top: 2.5rem;
+        height: 4rem;
+        width: 8rem;
+        text-decoration: none;
+        background-color: $color-charcoal-black;
+        color: $color-paper;
     }
     &__button-delete{
         display: inline;
+    }
+    &__image{
+        width: 100%;
+        img{
+            width: 100%;
+        }
+    }
+    &__content{
+        text-align: justify;
     }
   }
   .panel-hide {
@@ -41,10 +59,19 @@
   .panel-show{
       display: block;
       font-size: 1.5rem;
-      padding: .5rem 1.8rem;
+      padding: .5rem 1.2rem;
       width: 57%;
       margin:0 auto;
       min-height: 10rem;
       background-color: $color-white;
       margin-bottom: 1rem;
+  }
+  mat-paginator{
+      margin-top: 1.6rem;
+  }
+
+  .post-list{
+      &__post{
+          padding-top: 10px;
+      }
   }

@@ -1,11 +1,18 @@
 <div class="posts">
-    <form (submit)="addPost(postForm)" class="posts__form" #postForm="ngForm">
-        <input type="text" class="posts__title" placeholder="Enter Title" name="title" ngModel required minLength="3" #title="ngModel">
-        <div *ngIf="title.dirty && title.invalid" align="center">Please enter a Post title</div>
+    <form [formGroup]="form" (submit)="onSavePost()" class="posts__form">
+        <input type="text" formControlName="title" class="posts__title" placeholder="Enter Title" name="title">
+        <div *ngIf="form.get('title').invalid" align="center">Please enter a Post title</div>
 
-        <textarea class="posts__content" cols="30" rows="6" name="content" ngModel required #content="ngModel" placeholder="Enter Content">
+       
+        <button type="button" class="btn posts__image" (click)="filePicker.click()">Pick Image</button> 
+        <input type="file" #filePicker (change)="onImagePicked($event)">
+        <div class="posts__image-preview" align="center" *ngIf="imagePreview && form.get('image').valid">
+            <img [src]="imagePreview" [alt]="form.value.title">
+        </div>
+
+        <textarea class="posts__content" formControlName="content" cols="30" rows="6" name="content" placeholder="Enter Content">
         </textarea>
-        <div *ngIf="content.dirty && content.invalid" align="center">Please enter valid content</div>
+        <div *ngIf="form.get('content').invalid" align="center">Please enter valid content</div>
         <div align="center">
             <button class="btn" type="submit">Save Post</button>
         </div>

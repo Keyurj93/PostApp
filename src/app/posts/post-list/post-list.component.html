@@ -1,18 +1,22 @@
-<div *ngIf="postsData.length" class="post-list">
+
     <div *ngFor="let post of postsData" class="post-list__post">
         <div class="accordian">
-            <button class="accordion__title" (click)="toggleAccordian(post)">{{post.title}}</button>
+            <button class="accordian__title" (click)="toggleAccordian(post)">{{post.title}}</button>
             <div class="accordian__content-wrapper" [ngClass]="post.showPanel ? 'panel-show' : 'panel-hide'">
                 <p class="accordian__content">{{post.content}}</p>
                 <hr>
-                <div class="accordian__buttons">
-                    <button class="btn accordian__button-edit">EDIT</button>
-                    <button class="btn accordian__button-delete">DELETE</button>
+                <div class="accordian__image">
+                    <img [src]="post.imagePath" [alt]="post.title">
+                </div>
+                <div class="accordian__buttons" *ngIf="userIsAuthenticated && userId===post.creator">
+                    <button class="btn accordian__button-edit" [routerLink]="['/edit',post.id]">EDIT</button>
+                    <button class="btn accordian__button-delete" (click)="onDelete(post.id)">DELETE</button>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <mat-paginator [length]="totalPosts" [pageSize]="postsPerPage" [pageSizeOptions]="pageSizeOptions" (page)="onPageChanged($event)" *ngIf="postsData.length>0"></mat-paginator>
+
 <div *ngIf="!postsData.length" class="no-posts" align="center">
     <p>No posts added yet</p>
 </div>
